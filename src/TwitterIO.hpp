@@ -68,8 +68,13 @@ namespace QTwitterIO
 
 		//do oauth and return condition. You have to call it before using API functions
 		bool initialize();
+		
+		//unlink twitter account
 		void unlink();
+
+		//return true if linked to twitter account
 		bool linked();
+
 		//APIs
 		QNetworkReply* account_verify_credentials(QueryMap const& query);
 		QNetworkReply* application_rate_limit_status(QueryMap const& query);
