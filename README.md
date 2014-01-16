@@ -19,6 +19,6 @@ If you want to unlink application from Twitter Account, call unlink().
 Bug report or question is more than welcome.  
 
 
-Thanks:
+Credit:
 --
 o2 - OAuth library for Qt - https://github.com/pipacs/o2
