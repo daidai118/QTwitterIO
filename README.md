@@ -13,10 +13,10 @@ Usage:
 First, instantiate QTwitterIO::TwitterIO with your consumer_key, consumer_secret, and parent QObject.  
 Second, connect five signals of TwitterIO. They can be called only when Authentification.  
 Third, call initialize() of the instance. this function does OAuth.  
-Then, read https://dev.twitter.com/docs/api/1.1 and insert arguments of the APIs into QTwitterIO::QueryMap (which is typedef of QMap<QString,QString>), and call function of QTwitterIO::TwitterIO with the QueryMap instance as argument.  
+Then, read https://dev.twitter.com/docs/api/1.1 and insert arguments of the APIs into QTwitterIO::QueryMap (which is typedef of QMap<QString,QString>), and call function of QTwitterIO::TwitterIO with the QueryMap as argument.  
 If you want to unlink application from Twitter Account, call unlink().  
 
-Bug report or question is more than wellcome.  
+Bug report or question is more than welcome.  
 
 
 Thanks:
