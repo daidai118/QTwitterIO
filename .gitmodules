@@ -1,0 +1,3 @@
+[submodule "src/o2"]
+	path = src/o2
+	url = https://github.com/pipacs/o2
