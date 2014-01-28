@@ -109,24 +109,24 @@ namespace QTwitterIO
 	{}
 
 	bool TwitterIO::linked(){
-		return o1->linked();
+		return o1.linked();
 	}
 
 	void TwitterIO::unlink(){
-		o1->unlink();
+		o1.unlink();
 	}
 
 	bool TwitterIO::initialize(){
 
-		o1->setClientId(consumer_key);
-		o1->setClientSecret(consumer_secret);
-		connect(o1.data(), &O1Twitter::linkedChanged, this, &TwitterIO::on_auth_Changed);
-		connect(o1.data(), &O1Twitter::linkingFailed, this, &TwitterIO::on_auth_Failed);
-		connect(o1.data(), &O1Twitter::openBrowser, this, &TwitterIO::on_auth_OpenBrowser);
-		connect(o1.data(), &O1Twitter::closeBrowser, this, &TwitterIO::on_auth_CloseBrowser);
-		connect(o1.data(), &O1Twitter::linkingSucceeded, this, &TwitterIO::on_auth_Finished);
-		o1->link();
-		return o1->linked();
+		o1.setClientId(consumer_key);
+		o1.setClientSecret(consumer_secret);
+		connect(&o1, &O1Twitter::linkedChanged, this, &TwitterIO::on_auth_Changed);
+		connect(&o1, &O1Twitter::linkingFailed, this, &TwitterIO::on_auth_Failed);
+		connect(&o1, &O1Twitter::openBrowser, this, &TwitterIO::on_auth_OpenBrowser);
+		connect(&o1, &O1Twitter::closeBrowser, this, &TwitterIO::on_auth_CloseBrowser);
+		connect(&o1, &O1Twitter::linkingSucceeded, this, &TwitterIO::on_auth_Finished);
+		o1.link();
+		return o1.linked();
 	}
 	QNetworkReply* TwitterIO::account_verify_credentials(QueryMap const& query){
 		return GET_impl(config::api_twitter_com + config::account_verify_credentials_url + config::url_suffix, query); 

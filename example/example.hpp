@@ -2,7 +2,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 #include <QtCore/QDebug>
-
+#include <QtWidgets/QtWidgets>
 class Tweeter:public QObject{
 	Q_OBJECT
 	QTwitterIO::TwitterIO twitterIO;

@@ -18,7 +18,7 @@ namespace QTwitterIO
 	class TwitterIO:public QNetworkAccessManager
 	{
 		Q_OBJECT
-		QScopedPointer<O1Twitter> o1;
+		O1Twitter o1;
 		QString const consumer_key;
 		QString const consumer_secret;
 		QString access_token;
@@ -33,9 +33,9 @@ namespace QTwitterIO
 		void addQueryMapToUrlQuery(QUrlQuery& dest, QueryMap const& src);
 		QNetworkReply* POST_impl(QString const& url,QueryMap const& query);
 		QNetworkReply* GET_impl(QString const& url, QueryMap const& query);
-
+		
 		TwitterIO(QObject *parent=0)=delete;
-
+		
 		void on_auth_Changed(){
 			emit auth_Changed();
 		}
@@ -43,8 +43,8 @@ namespace QTwitterIO
 			emit auth_Failed();
 		}
 		void on_auth_Finished(){
-			access_token= o1->token();
-			access_token_secret= o1->tokenSecret();
+			access_token= o1.token();
+			access_token_secret= o1.tokenSecret();
 			emit auth_Finished();
 		}
 		void on_auth_OpenBrowser(QUrl const& url){
@@ -53,8 +53,8 @@ namespace QTwitterIO
 		void on_auth_CloseBrowser(){
 			emit auth_CloseBrowser();
 		}
-
 		
+
 	signals:
 		//signals emited on authorization
 		void auth_Changed();
@@ -65,6 +65,7 @@ namespace QTwitterIO
 	
 	public:
 		TwitterIO(QString const consumer_key, QString const consumer_secret, QObject* parent=0);
+		virtual ~TwitterIO()=default;				
 
 		//do oauth and return condition. You have to call it before using API functions
 		bool initialize();
